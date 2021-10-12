@@ -11,12 +11,12 @@ pipeline {
 				git 'https://github.com/DSobanski0/DBE-Challenge-LetMeWalk.git'
 				sh "mvn -Dmaven.test.failure.ignore=true clean package"
 			}
-
-			post {
-				success {
-					junit '**/target/surefire-reports/TEST-*.xml'
-					archiveArtifacts 'target/*.jar'
-				}
+		}
+		
+		stage('Test') {
+			steps {
+				junit '**/target/surefire-reports/TEST-*.xml'
+				archiveArtifacts 'target/*.jar'
 			}
 		}
 

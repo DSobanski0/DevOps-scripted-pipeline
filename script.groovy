@@ -2,7 +2,7 @@ pipeline {
 	agent any
 
 	tools {
-		maven "M3"
+		maven "apache-maven"
 	}
 
 	stages {
@@ -21,8 +21,10 @@ pipeline {
 		}
 
 		stage('Deploy') {
-			echo 'Realizando o Deploy em Desenvolvimento...'
-			sleep 5
+			steps {
+				echo 'Realizando o Deploy em Desenvolvimento...'
+				sleep 5
+			}
 		}
 	}
 }
